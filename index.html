@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAJ PHOTOGRAPHY — Ariyalur, Tamil Nadu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#c9a96e;
+  --gold-light:#e8c990;
+  --dark:#0a0a0a;
+  --dark-2:#111111;
+  --dark-3:#1a1a1a;
+  --dark-4:#222222;
+  --muted:#888;
+  --text:#e8e4de;
+  --white:#f5f0ea;
+  --serif:'Cormorant Garamond',serif;
+  --display:'Playfair Display',serif;
+  --sans:'DM Sans',sans-serif;
+  --transition:cubic-bezier(0.4,0,0.2,1);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--dark);color:var(--text);font-family:var(--sans);font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--gold);color:var(--dark)}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--dark)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+
+/* ── NAVBAR ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 4rem;display:flex;align-items:center;justify-content:space-between;transition:all 0.5s var(--transition)}
+nav.scrolled{background:rgba(10,10,10,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:0.9rem 4rem;border-bottom:1px solid rgba(201,169,110,0.1)}
+.nav-logo{font-family:var(--serif);font-size:1.35rem;font-weight:600;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase}
+.nav-logo span{font-weight:300;color:var(--white)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-family:var(--sans);font-size:0.78rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);opacity:0.75;position:relative;padding-bottom:3px;transition:opacity 0.3s}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width 0.35s var(--transition)}
+.nav-links a:hover{opacity:1}
+.nav-links a:hover::after{width:100%}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;z-index:200}
+.hamburger span{display:block;width:26px;height:1.5px;background:var(--text);transition:all 0.35s var(--transition);transform-origin:center}
+.hamburger.active span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.active span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.active span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-menu{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,10,10,0.97);backdrop-filter:blur(30px);z-index:150;display:flex;align-items:center;justify-content:center;transform:translateY(-100%);transition:transform 0.5s var(--transition);pointer-events:none}
+.mobile-menu.open{transform:translateY(0);pointer-events:all}
+.mobile-links{list-style:none;text-align:center}
+.mobile-links li{margin:1.6rem 0;opacity:0;transform:translateY(20px);transition:all 0.4s var(--transition)}
+.mobile-menu.open .mobile-links li{opacity:1;transform:translateY(0)}
+.mobile-menu.open .mobile-links li:nth-child(1){transition-delay:0.1s}
+.mobile-menu.open .mobile-links li:nth-child(2){transition-delay:0.15s}
+.mobile-menu.open .mobile-links li:nth-child(3){transition-delay:0.2s}
+.mobile-menu.open .mobile-links li:nth-child(4){transition-delay:0.25s}
+.mobile-menu.open .mobile-links li:nth-child(5){transition-delay:0.3s}
+.mobile-menu.open .mobile-links li:nth-child(6){transition-delay:0.35s}
+.mobile-links a{font-family:var(--display);font-size:2.4rem;font-weight:400;letter-spacing:0.06em;color:var(--white);transition:color 0.3s}
+.mobile-links a:hover{color:var(--gold)}
+
+/* ── HERO ── */
+#home{position:relative;height:100vh;min-height:640px;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('VELS4194.jpg') center/cover no-repeat; background-position: center top;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,0.78) 0%,rgba(0,0,0,0.55) 50%,rgba(0,0,0,0.72) 100%)}
+.hero-grain{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");opacity:0.5;pointer-events:none}
+.hero-content{position:relative;z-index:2;padding:0 4rem;max-width:780px}
+.hero-eyebrow{font-family:var(--sans);font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.6rem;opacity:0;animation:fadeUp 0.9s 0.3s var(--transition) forwards}
+.hero-title{font-family:var(--display);font-size:clamp(2.4rem,5.5vw,4.6rem);font-weight:400;line-height:1.15;color:var(--white);margin-bottom:1.6rem;opacity:0;animation:fadeUp 0.9s 0.5s var(--transition) forwards}
+.hero-title em{font-style:italic;color:var(--gold-light)}
+.hero-sub{font-family:var(--sans);font-size:0.96rem;font-weight:300;line-height:1.8;color:rgba(232,228,222,0.72);max-width:540px;margin-bottom:2.8rem;opacity:0;animation:fadeUp 0.9s 0.7s var(--transition) forwards}
+.hero-btns{display:flex;gap:1.2rem;flex-wrap:wrap;opacity:0;animation:fadeUp 0.9s 0.9s var(--transition) forwards}
+.btn-primary{display:inline-flex;align-items:center;gap:0.55rem;padding:0.85rem 2rem;background:var(--gold);color:var(--dark);font-family:var(--sans);font-size:0.8rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.35s var(--transition);position:relative;overflow:hidden}
+.btn-primary::before{content:'';position:absolute;inset:0;background:var(--gold-light);transform:translateX(-101%);transition:transform 0.4s var(--transition)}
+.btn-primary:hover::before{transform:translateX(0)}
+.btn-primary span,.btn-primary svg{position:relative;z-index:1}
+.btn-outline{display:inline-flex;align-items:center;gap:0.55rem;padding:0.85rem 2rem;background:transparent;color:var(--white);font-family:var(--sans);font-size:0.8rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;border:1px solid rgba(232,228,222,0.35);cursor:pointer;transition:all 0.35s var(--transition)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.6rem;opacity:0;animation:fadeIn 1s 1.4s forwards;z-index:2}
+.hero-scroll span{font-family:var(--sans);font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+.scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollPulse 2s ease-in-out infinite}
+
+/* ── SECTION COMMONS ── */
+section{padding:6rem 4rem}
+.section-label{font-family:var(--sans);font-size:0.7rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.section-title{font-family:var(--display);font-size:clamp(2rem,4vw,3.4rem);font-weight:400;line-height:1.2;color:var(--white);margin-bottom:1.6rem}
+.section-title em{font-style:italic;color:var(--gold-light)}
+.section-divider{width:48px;height:1px;background:var(--gold);margin-bottom:2rem}
+
+/* ── ABOUT ── */
+#about{background:var(--dark-2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;max-width:1200px;margin:0 auto}
+.about-img-wrap{position:relative;aspect-ratio:3/4;overflow:hidden}
+.about-img-wrap img{transition:transform 1s var(--transition)}
+.about-img-wrap:hover img{transform:scale(1.04)}
+.about-img-frame{position:absolute;top:1.5rem;left:1.5rem;right:-1.5rem;bottom:-1.5rem;border:1px solid rgba(201,169,110,0.25);pointer-events:none;z-index:-1}
+.about-badge{position:absolute;bottom:2rem;right:-2rem;background:var(--dark-3);border:1px solid rgba(201,169,110,0.2);padding:1.2rem 1.6rem;backdrop-filter:blur(10px)}
+.about-badge-num{font-family:var(--display);font-size:2.4rem;color:var(--gold);line-height:1}
+.about-badge-text{font-size:0.72rem;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase;margin-top:0.3rem}
+.about-text p{font-size:0.95rem;line-height:1.9;color:rgba(232,228,222,0.72);margin-bottom:1.2rem}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:2rem}
+.about-feature{display:flex;align-items:center;gap:0.7rem;font-size:0.82rem;color:var(--text);opacity:0.8}
+.about-feature::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0}
+
+/* ── SERVICES ── */
+#services{background:var(--dark)}
+.services-header{max-width:1200px;margin:0 auto 3.5rem}
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5px;max-width:1200px;margin:0 auto;background:rgba(201,169,110,0.08)}
+.service-card{background:var(--dark);padding:2.2rem 1.8rem;position:relative;overflow:hidden;cursor:default;transition:all 0.4s var(--transition)}
+.service-card::before{content:'';position:absolute;inset:0;background:var(--dark-3);transform:scaleY(0);transform-origin:bottom;transition:transform 0.45s var(--transition)}
+.service-card:hover::before{transform:scaleY(1)}
+.service-card:hover{box-shadow:0 0 0 1px rgba(201,169,110,0.2)}
+.service-icon{width:44px;height:44px;margin-bottom:1.4rem;position:relative;z-index:1;opacity:0.6;transition:opacity 0.3s}
+.service-card:hover .service-icon{opacity:1}
+.service-name{font-family:var(--display);font-size:1.1rem;font-weight:400;color:var(--white);margin-bottom:0.6rem;position:relative;z-index:1}
+.service-desc{font-size:0.8rem;line-height:1.7;color:var(--muted);position:relative;z-index:1;transition:color 0.3s}
+.service-card:hover .service-desc{color:rgba(232,228,222,0.7)}
+.service-num{position:absolute;top:1.5rem;right:1.8rem;font-family:var(--serif);font-size:0.75rem;color:rgba(201,169,110,0.3);z-index:1}
+
+/* ── PORTFOLIO ── */
+#portfolio{background:var(--dark-2)}
+.portfolio-header{max-width:1200px;margin:0 auto 3rem;display:flex;align-items:flex-end;justify-content:space-between}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:240px;gap:4px;max-width:1200px;margin:0 auto}
+.gallery-item{position:relative;overflow:hidden;cursor:pointer}
+.gallery-item.tall{grid-row:span 2}
+.gallery-item.wide{grid-column:span 2}
+.gallery-item img{transition:transform 0.8s var(--transition)}
+.gallery-item:hover img{transform:scale(1.08)}
+.gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.75) 0%,transparent 60%);opacity:0;transition:opacity 0.4s}
+.gallery-item:hover .gallery-overlay{opacity:1}
+.gallery-label{position:absolute;bottom:1.2rem;left:1.2rem;font-family:var(--sans);font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);transform:translateY(8px);opacity:0;transition:all 0.4s 0.05s}
+.gallery-item:hover .gallery-label{opacity:1;transform:translateY(0)}
+
+/* ── PACKAGES ── */
+#packages{background:var(--dark)}
+.packages-header{max-width:1000px;margin:0 auto 3.5rem;text-align:center}
+.packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;max-width:1000px;margin:0 auto;background:rgba(201,169,110,0.1)}
+.pkg-card{background:var(--dark);padding:2.8rem 2.2rem;position:relative;transition:all 0.4s var(--transition)}
+.pkg-card.featured{background:var(--dark-3);box-shadow:0 0 0 1px rgba(201,169,110,0.3)}
+.pkg-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--dark);font-size:0.65rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;padding:0.35rem 1rem;white-space:nowrap}
+.pkg-tier{font-family:var(--sans);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem}
+.pkg-name{font-family:var(--display);font-size:1.8rem;color:var(--white);margin-bottom:0.4rem}
+.pkg-price{font-family:var(--serif);font-size:2.6rem;color:var(--gold);line-height:1;margin:1.4rem 0}
+.pkg-price sup{font-size:1rem;vertical-align:top;margin-top:0.6rem;display:inline-block}
+.pkg-price sub{font-size:0.8rem;color:var(--muted)}
+.pkg-divider{width:32px;height:1px;background:rgba(201,169,110,0.3);margin:1.4rem 0}
+.pkg-features{list-style:none;margin-bottom:2rem}
+.pkg-features li{font-size:0.83rem;color:rgba(232,228,222,0.7);padding:0.45rem 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:0.6rem}
+.pkg-features li::before{content:'';width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0}
+.pkg-features li.disabled{color:rgba(255,255,255,0.2)}
+.pkg-features li.disabled::before{background:rgba(255,255,255,0.15)}
+.pkg-btn{width:100%;padding:0.85rem;background:transparent;border:1px solid rgba(201,169,110,0.3);color:var(--gold);font-family:var(--sans);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:all 0.35s var(--transition)}
+.pkg-btn:hover,.pkg-card.featured .pkg-btn{background:var(--gold);color:var(--dark);border-color:var(--gold)}
+
+/* ── CONTACT ── */
+#contact{background:var(--dark-2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;max-width:1100px;margin:0 auto;align-items:start}
+.contact-info{padding-top:0.5rem}
+.contact-item{display:flex;align-items:flex-start;gap:1rem;margin-bottom:2rem}
+.contact-icon{width:40px;height:40px;border:1px solid rgba(201,169,110,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold)}
+.contact-item-label{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem}
+.contact-item-value{font-size:0.95rem;color:var(--text)}
+.contact-form{display:flex;flex-direction:column;gap:1rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:0.4rem}
+.form-group label{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+.form-group input,.form-group textarea,.form-group select{background:var(--dark);border:1px solid rgba(255,255,255,0.08);color:var(--text);font-family:var(--sans);font-size:0.88rem;padding:0.75rem 1rem;outline:none;transition:border-color 0.3s;resize:none}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:rgba(201,169,110,0.5)}
+.form-group textarea{height:130px}
+.form-group select{appearance:none;cursor:pointer}
+option{background:var(--dark-3)}
+
+/* ── FLOATING BUTTONS ── */
+.float-btns{position:fixed;right:1.6rem;bottom:2rem;display:flex;flex-direction:column;gap:0.85rem;z-index:90}
+.float-btn{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.35s var(--transition);box-shadow:0 4px 20px rgba(0,0,0,0.4)}
+.float-btn svg{width:20px;height:20px}
+.float-wa{background:#25d366;color:#fff}
+.float-wa:hover{transform:scale(1.12);box-shadow:0 6px 28px rgba(37,211,102,0.45)}
+.float-call{background:var(--dark-3);border:1px solid rgba(201,169,110,0.3);color:var(--gold)}
+.float-call:hover{background:var(--gold);color:var(--dark);transform:scale(1.12)}
+.float-ig{background:var(--dark-3);border:1px solid rgba(201,169,110,0.3);color:var(--gold)}
+.float-ig:hover{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;border-color:transparent;transform:scale(1.12)}
+
+/* ── FOOTER ── */
+footer{background:var(--dark);border-top:1px solid rgba(201,169,110,0.08);padding:3rem 4rem}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.footer-logo{font-family:var(--serif);font-size:1.1rem;font-weight:600;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase}
+.footer-copy{font-size:0.78rem;color:var(--muted);letter-spacing:0.04em}
+.footer-socials{display:flex;gap:1.2rem}
+.footer-socials a{color:var(--muted);transition:color 0.3s}
+.footer-socials a:hover{color:var(--gold)}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes scrollPulse{0%,100%{opacity:1;height:50px}50%{opacity:0.3;height:30px}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s var(--transition),transform 0.8s var(--transition)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── LIGHTBOX ── */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.4s}
+.lightbox.open{opacity:1;pointer-events:all}
+.lightbox img{max-width:90vw;max-height:88vh;object-fit:contain;border:1px solid rgba(201,169,110,0.1)}
+.lightbox-close{position:absolute;top:2rem;right:2rem;color:var(--text);cursor:pointer;font-size:1.8rem;opacity:0.7;transition:opacity 0.3s;background:none;border:none;line-height:1}
+.lightbox-close:hover{opacity:1}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  nav{padding:1.1rem 2rem}
+  nav.scrolled{padding:0.85rem 2rem}
+  section{padding:5rem 2rem}
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:3rem}
+  .about-badge{right:1rem}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}
+  .packages-grid{grid-template-columns:1fr;gap:1px}
+  .pkg-card.featured{box-shadow:0 0 0 1px rgba(201,169,110,0.3),0 8px 40px rgba(0,0,0,0.5)}
+  .footer-inner{flex-direction:column;align-items:center;text-align:center}
+}
+@media(max-width:768px){
+  nav{padding:1rem 1.4rem}
+  nav.scrolled{padding:0.8rem 1.4rem}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero-content{padding:0 1.4rem}
+  section{padding:4rem 1.4rem}
+  .portfolio-header{flex-direction:column;align-items:flex-start;gap:1rem}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+  .gallery-item.wide{grid-column:span 1}
+  .form-row{grid-template-columns:1fr}
+  footer{padding:2.5rem 1.4rem}
+  .about-badge{right:0;bottom:1rem}
+  .float-btns{right:1rem;bottom:1.5rem}
+}
+@media(max-width:480px){
+  .services-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:140px}
+  .hero-btns{flex-direction:column}
+  .btn-primary,.btn-outline{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-logo">Raj <span>Photography</span></div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="mobile-links">
+    <li><a href="#home" onclick="closeMenu()">Home</a></li>
+    <li><a href="#about" onclick="closeMenu()">About</a></li>
+    <li><a href="#services" onclick="closeMenu()">Services</a></li>
+    <li><a href="#portfolio" onclick="closeMenu()">Portfolio</a></li>
+    <li><a href="#packages" onclick="closeMenu()">Packages</a></li>
+    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+  </ul>
+</div>
+
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Ariyalur, Tamil Nadu · Est. 2018</p>
+    <h1 class="hero-title">Professional Wedding<br>&amp; <em>Cinematic</em> Photography</h1>
+    <p class="hero-sub">RAJ PHOTOGRAPHY delivers cinematic wedding storytelling, candid photography, luxury portraits, drone videography, and traditional event coverage across Ariyalur and Tamil Nadu.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/919025985329?text=Hello%20RAJ%20PHOTOGRAPHY,%20I%20want%20to%20book%20a%20photoshoot." target="_blank" class="btn-primary">
+        <span>
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.135.56 4.14 1.535 5.876L0 24l6.255-1.519A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.935 0-3.75-.508-5.317-1.394l-.38-.226-3.941.957.99-3.819-.247-.394A9.952 9.952 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        </span>
+        <span>Book on WhatsApp</span>
+      </a>
+      <a href="#portfolio" class="btn-outline">
+        <span>View Portfolio</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap reveal">
+      <img src="VELS4051.jpg" alt="RAJ PHOTOGRAPHY — Cinematic Wedding">
+      <div class="about-img-frame"></div>
+      <div class="about-badge">
+        <div class="about-badge-num">6+</div>
+        <div class="about-badge-text">Years of Excellence</div>
+      </div>
+    </div>
+    <div class="about-text reveal">
+      <p class="section-label">About Us</p>
+      <h2 class="section-title">Crafting Stories<br>Frame by <em>Frame</em></h2>
+      <div class="section-divider"></div>
+      <p>At RAJ PHOTOGRAPHY, every wedding is a unique narrative waiting to be told. Based in Ariyalur, we blend cinematic vision with heartfelt storytelling — capturing the emotions, rituals, and candid moments that define your celebration.</p>
+      <p>From traditional Tamil ceremonies filled with vibrant colours and sacred rituals, to intimate couple portraits bathed in golden light — our lens finds the extraordinary in every ordinary moment.</p>
+      <p>With premium drone coverage, luxury album design, and cinematic video edits, we deliver a complete visual legacy of your most cherished day.</p>
+      <div class="about-features">
+        <div class="about-feature">Wedding Storytelling</div>
+        <div class="about-feature">Cinematic Editing</div>
+        <div class="about-feature">Candid Photography</div>
+        <div class="about-feature">Drone Coverage</div>
+        <div class="about-feature">Traditional Events</div>
+        <div class="about-feature">Luxury Albums</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="services-header reveal">
+    <p class="section-label">What We Offer</p>
+    <h2 class="section-title">Our <em>Services</em></h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <span class="service-num">01</span>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      <div class="service-name">Wedding Photography</div>
+      <p class="service-desc">Full-day candid and portrait coverage of your wedding rituals, ceremonies, and celebrations.</p>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-num">02</span>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      <div class="service-name">Cinematic Videography</div>
+      <p class="service-desc">Hollywood-grade wedding films with cinematic color grading, music, and storytelling cuts.</p>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-num">03</span>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <div class="service-name">Drone Coverage</div>
+      <p class="service-desc">Stunning aerial shots and sweeping venue overviews that add grandeur to your wedding visuals.</p>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-num">04</span>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      <div class="service-name">Couple Shoots</div>
+      <p class="service-desc">Romantic pre-wedding and post-wedding sessions crafted with artistic precision and natural light.</p>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-num">05</span>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      <div class="service-name">Traditional Events</div>
+      <p class="service-desc">Authentic coverage of Tamil rituals — Seemantham, Haldi, Mehendi, Muhurtham, and more.</p>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-num">06</span>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      <div class="service-name">Album Designing</div>
+      <p class="service-desc">Luxury handcrafted photo albums with premium printing, lay-flat binding, and editorial layouts.</p>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-num">07</span>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div class="service-name">Engagement Shoots</div>
+      <p class="service-desc">Elegant lifestyle and studio sessions capturing the joy and connection of newly engaged couples.</p>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-num">08</span>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+      <div class="service-name">Reception Coverage</div>
+      <p class="service-desc">Full reception photography and videography — speeches, first dances, and every celebration moment.</p>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="portfolio-header reveal">
+    <div>
+      <p class="section-label">Our Work</p>
+      <h2 class="section-title">Portfolio <em>Gallery</em></h2>
+    </div>
+    <a href="https://www.instagram.com/raj_photography04_?igsh=MWt3aGJtdWZmbnl6eA==" target="_blank" class="btn-outline" style="white-space:nowrap">View on Instagram</a>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item tall reveal" onclick="openLightbox(this)">
+      <img src="VELS4353.jpg" alt="Wedding">
+      <div class="gallery-overlay"></div>
+      <div class="gallery-label">Wedding</div>
+    </div>
+    <div class="gallery-item reveal" onclick="openLightbox(this)">
+      <img src="VELS4314.jpg" alt="Candid">
+      <div class="gallery-overlay"></div>
+      <div class="gallery-label">Candid</div>
+    </div>
+    <div class="gallery-item reveal" onclick="openLightbox(this)">
+      <img src="VELS4155.jpg" alt="Couple Shoot">
+      <div class="gallery-overlay"></div>
+      <div class="gallery-label">Couple Shoot</div>
+    </div>
+    <div class="gallery-item tall reveal" onclick="openLightbox(this)">
+      <img src="VELS4219.jpg" alt="Traditional Event">
+      <div class="gallery-overlay"></div>
+      <div class="gallery-label">Traditional Event</div>
+    </div>
+    <div class="gallery-item wide reveal" onclick="openLightbox(this)">
+      <img src="VELS4205.jpg" alt="Cinematic Portrait">
+      <div class="gallery-overlay"></div>
+      <div class="gallery-label">Cinematic Portrait</div>
+    </div>
+    <div class="gallery-item reveal" onclick="openLightbox(this)">
+      <img src="VELS4238.jpg" alt="Engagement">
+      <div class="gallery-overlay"></div>
+      <div class="gallery-label">Engagement</div>
+    </div>
+    <div class="gallery-item reveal" onclick="openLightbox(this)">
+      <img src="VELS4194.jpg" alt="Reception">
+      <div class="gallery-overlay"></div>
+      <div class="gallery-label">Reception</div>
+    </div>
+    <div class="gallery-item reveal" onclick="openLightbox(this)">
+      <img src="VELS4051.jpg" alt="Drone Shot">
+      <div class="gallery-overlay"></div>
+      <div class="gallery-label">Drone Shot</div>
+    </div>
+    <div class="gallery-item wide reveal" onclick="openLightbox(this)">
+      <img src="VELS4155.jpg" alt="Wedding">
+      <div class="gallery-overlay"></div>
+      <div class="gallery-label">Wedding</div>
+    </div>
+    <div class="gallery-item reveal" onclick="openLightbox(this)">
+      <img src="VELS4314.jpg" alt="Candid">
+      <div class="gallery-overlay"></div>
+      <div class="gallery-label">Candid</div>
+    </div>
+    <div class="gallery-item tall reveal" onclick="openLightbox(this)">
+      <img src="VELS4219.jpg" alt="Couple Shoot">
+      <div class="gallery-overlay"></div>
+      <div class="gallery-label">Couple Shoot</div>
+    </div>
+    <div class="gallery-item reveal" onclick="openLightbox(this)">
+      <img src="VELS4353.jpg" alt="Reception">
+      <div class="gallery-overlay"></div>
+      <div class="gallery-label">Reception</div>
+    </div>
+  </div>
+</section>
+
+<section id="packages">
+  <div class="packages-header reveal">
+    <p class="section-label">Pricing</p>
+    <h2 class="section-title">Our <em>Packages</em></h2>
+    <p style="font-size:0.9rem;color:var(--muted);margin-top:0.5rem">All packages are customizable. Contact us for personalized quotes.</p>
+  </div>
+  <div class="packages-grid">
+    <div class="pkg-card reveal">
+      <div class="pkg-tier">Classic</div>
+      <div class="pkg-name">Package</div>
+      <div class="pkg-price"><sup>₹</sup>27,999<sub>/-</sub></div>
+      <div class="pkg-divider"></div>
+      <ul class="pkg-features">
+        <li>Traditional photo</li>
+        <li>Traditional video</li>
+        <li>Outdoor photoshoot</li>
+        <li>Premium album</li>
+        <li>Video edit with pendrive</li>
+        <li>Wood frame 1 (complimentary)</li>
+        <li>Calendar</li>
+      </ul>
+      <a href="https://wa.me/919025985329?text=Hello%20RAJ%20PHOTOGRAPHY,%20I%20am%20interested%20in%20the%20Classic%20Package." target="_blank" class="pkg-btn">Book Now</a>
+    </div>
+    <div class="pkg-card featured reveal">
+      <div class="pkg-badge">Premium</div>
+      <div class="pkg-tier">Premium</div>
+      <div class="pkg-name">Package</div>
+      <div class="pkg-price"><sup>₹</sup>47,999<sub>/-</sub></div>
+      <div class="pkg-divider"></div>
+      <ul class="pkg-features">
+        <li>Traditional photo</li>
+        <li>Traditional video</li>
+        <li>Candid photo</li>
+        <li>Outdoor photo &amp; video</li>
+        <li>Premium album</li>
+        <li>Video edit with pendrive</li>
+        <li>Wood frame 2 (complimentary)</li>
+        <li>Calendar</li>
+      </ul>
+      <a href="https://wa.me/919025985329?text=Hello%20RAJ%20PHOTOGRAPHY,%20I%20am%20interested%20in%20the%20Premium%20Package." target="_blank" class="pkg-btn">Book Now</a>
+    </div>
+    <div class="pkg-card reveal">
+      <div class="pkg-tier">Luxury</div>
+      <div class="pkg-name">Package</div>
+      <div class="pkg-price"><sup>₹</sup>59,999<sub>/-</sub></div>
+      <div class="pkg-divider"></div>
+      <ul class="pkg-features">
+        <li>Traditional photo</li>
+        <li>Traditional video</li>
+        <li>Candid photo</li>
+        <li>Candid video</li>
+        <li>Outdoor photo, video songs</li>
+        <li>Luxury album</li>
+        <li>Video edit with 4K (pendrive)</li>
+        <li>Cinematic teaser, Insta reels</li>
+        <li>Wood frame 2 (complimentary)</li>
+        <li>Calendar</li>
+      </ul>
+      <a href="https://wa.me/919025985329?text=Hello%20RAJ%20PHOTOGRAPHY,%20I%20am%20interested%20in%20the%20Luxury%20Package." target="_blank" class="pkg-btn">Book Now</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <p class="section-label">Get in Touch</p>
+      <h2 class="section-title">Let's Create<br><em>Magic Together</em></h2>
+      <div class="section-divider"></div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="contact-item-label">Location</div>
+          <div class="contact-item-value">Ariyalur district, Melapalur, Trichy Main Road, 621707</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.99 1.18 2 2 0 013 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 6.91a16 16 0 006 6l.17-.17a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div>
+          <div class="contact-item-label">Phone</div>
+          <div class="contact-item-value">+91 90259 85329</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="contact-item-label">Email</div>
+          <div class="contact-item-value">rajphotography@gmail.com</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </div>
+        <div>
+          <div class="contact-item-label">Instagram</div>
+          <a href="https://www.instagram.com/raj_photography04_?igsh=MWt3aGJtdWZmbnl6eA==" target="_blank" class="contact-item-value" style="color:var(--gold)">@raj_photography04_</a>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem">
+        <a href="https://wa.me/919025985329?text=Hello%20RAJ%20PHOTOGRAPHY,%20I%20want%20to%20book%20a%20photoshoot." target="_blank" class="btn-primary">
+          <span>Chat on WhatsApp</span>
+        </a>
+      </div>
+    </div>
+    <div class="reveal">
+      <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">Your Name</label>
+            <input type="text" id="fname" name="name" placeholder="Full name" required>
+          </div>
+          <div class="form-group">
+            <label for="fphone">Phone Number</label>
+            <input type="tel" id="fphone" name="phone" placeholder="+91 00000 00000" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="fevent">Event Type</label>
+          <select id="fevent" name="event">
+            <option value="">Select event type</option>
+            <option>Wedding Photography</option>
+            <option>Cinematic Videography</option>
+            <option>Couple Shoot</option>
+            <option>Engagement Shoot</option>
+            <option>Traditional Event</option>
+            <option>Reception Coverage</option>
+            <option>Drone Coverage</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="fdate">Event Date</label>
+          <input type="date" id="fdate" name="date">
+        </div>
+        <div class="form-group">
+          <label for="fmsg">Message</label>
+          <textarea id="fmsg" name="message" placeholder="Tell us about your event, venue, and any special requirements..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="border:none;width:100%;justify-content:center">
+          <span>Send via WhatsApp</span>
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.135.56 4.14 1.535 5.876L0 24l6.255-1.519A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.935 0-3.75-.508-5.317-1.394l-.38-.226-3.941.957.99-3.819-.247-.394A9.952 9.952 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Raj Photography</div>
+    <div class="footer-copy">© 2024 RAJ PHOTOGRAPHY · Ariyalur, Tamil Nadu. All rights reserved.</div>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/raj_photography04_?igsh=MWt3aGJtdWZmbnl6eA==" target="_blank" aria-label="Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://wa.me/919025985329" target="_blank" aria-label="WhatsApp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.135.56 4.14 1.535 5.876L0 24l6.255-1.519A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.935 0-3.75-.508-5.317-1.394l-.38-.226-3.941.957.99-3.819-.247-.394A9.952 9.952 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      </a>
+      <a href="tel:+919025985329" aria-label="Call">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.99 1.18 2 2 0 013 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 6.91a16 16 0 006 6l.17-.17a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<div class="float-btns">
+  <a href="https://wa.me/919025985329?text=Hello%20RAJ%20PHOTOGRAPHY,%20I%20want%20to%20book%20a%20photoshoot." target="_blank" class="float-btn float-wa" title="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.135.56 4.14 1.535 5.876L0 24l6.255-1.519A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.935 0-3.75-.508-5.317-1.394l-.38-.226-3.941.957.99-3.819-.247-.394A9.952 9.952 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  </a>
+  <a href="tel:+919025985329" class="float-btn float-call" title="Call Us">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.99 1.18 2 2 0 013 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 6.91a16 16 0 006 6l.17-.17a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/raj_photography04_?igsh=MWt3aGJtdWZmbnl6eA==" target="_blank" class="float-btn float-ig" title="Instagram">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+  </a>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+// Navbar scroll
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{navbar.classList.toggle('scrolled',window.scrollY>60)});
+
+// Hamburger
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
+});
+function closeMenu(){
+  hamburger.classList.remove('active');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow='';
+}
+
+// Scroll reveal
+const reveals=document.querySelectorAll('.reveal'); 
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach((entry,i)=>{
+    if(entry.isIntersecting){
+      setTimeout(()=>entry.target.classList.add('visible'),i*60);
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+reveals.forEach(el=>observer.observe(el));
+
+// Lightbox
+function openLightbox(el){
+  const img=el.querySelector('img');
+  document.getElementById('lightboxImg').src=img.src.replace(/w=\d+/,'w=1200');
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
+
+// Contact form → WhatsApp
+function handleFormSubmit(e){
+  e.preventDefault();
+  const f=e.target;
+  const name=f.name.value||'';
+  const phone=f.phone.value||'';
+  const event=f.event.value||'Not specified';
+  const date=f.date.value||'Not specified';
+  const msg=f.message.value||'';
+  const text=`Hello RAJ PHOTOGRAPHY,%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AEvent: ${encodeURIComponent(event)}%0ADate: ${encodeURIComponent(date)}%0AMessage: ${encodeURIComponent(msg)}`;
+  window.open(`https://wa.me/919025985329?text=${text}`,'_blank');
+}
+
+// Active nav highlight
+const sections=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',()=>{
+  let current='';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-100)current=s.id});
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.style.opacity=a.getAttribute('href')==='#'+current?'1':'0.75';
+  });
+});
+</script>
+</body>
+</html>
